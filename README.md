@@ -1,6 +1,6 @@
 # 🧬 gff3-feature-visualization
 
-A lightweight command-line tool for visualizing genomic features from **GFF3 annotation files** as publication-ready multi-page PDFs.
+A lightweight command-line tool for visualizing bacterial genomic features from **GFF3 annotation files** as publication-ready multi-page PDFs.
 
 ---
 
@@ -59,7 +59,7 @@ A PDF file:
 <sample>_<contig>_f<start>-<end>_cds.pdf
 ```
 
-Below is an example visualization from *E. coli* (BAKTA annotation):
+Below is an example visualization from *Escherichia coli str. K-12* (BAKTA annotation):
 
 ![Example genome visualization](docs/output.png)
 
