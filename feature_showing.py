@@ -13,7 +13,7 @@ parser.add_argument("--end", type=int, required=True, help="End position of the 
 parser.add_argument("--contig_num", required=True, help="Contig number to select.")
 parser.add_argument("--length_per_line", type=int, default=10000, help="Nucleotides per line in plot.")
 parser.add_argument("--lines_per_page", type=int, default=5, help="Lines per page in plot.")
-
+parser.add_argument("--output_name", required=False, help="Path to save the output plot.")
 args = parser.parse_args()
 
 gff_path = args.gff_path
@@ -22,10 +22,7 @@ start = args.start
 end = args.end
 length_line = args.length_per_line
 lines_page = args.lines_per_page
-sample_name = gff_path.split("/")[-1].split(".gff3")[0]
-
-
-sample_name = gff_path.split("/")[-1].split(".gff3")[0]
+output_name = args.output_name
 print(">>>>>>>>>>>>>>>The parameters you provided<<<<<<<<<<<<<<<")
 print("GFF3 file path:", gff_path)
 print("Contig number:", contig_num)
@@ -33,7 +30,7 @@ print("Start position:", start)
 print("End position:", end)
 print("Nucleotides per line:", length_line)
 print("Lines per page:", lines_page)
-print("Processing file:", sample_name)
+print("Output plot path:", args.output_name)
 #%%
 #=================================================================
 #++++++++++++++++++++Step 1 gff3 file import ++++++++++++++++++++
@@ -105,7 +102,7 @@ for idx, row in Chr_select_loc.iterrows():
 record = GraphicRecord(sequence_length=Chr_select["end"].max(), features=features)
 subrecord = record.crop((start, end))
 subrecord.plot_on_multiple_pages(
-    f"{sample_name}_{contig_num}_f{start}-{end}_cds.pdf",
+    f"{output_name}.pdf",
     nucl_per_line=length_line,
     lines_per_page=lines_page,
     plot_sequence=False

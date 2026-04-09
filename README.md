@@ -39,7 +39,8 @@ python feature_showing.py \
   --end 633259 \
   --contig_num NC_000913.3 \
   --length_per_line 10000 \
-  --lines_per_page 5
+  --lines_per_page 5 \
+  --output_name test
 ```
 
 ---
@@ -53,11 +54,6 @@ python feature_showing.py \
 
 ## 📤 Output
 
-A PDF file:
-
-```
-<sample>_<contig>_f<start>-<end>_cds.pdf
-```
 
 Below is an example visualization from *Escherichia coli str. K-12* (BAKTA annotation):
 
@@ -75,7 +71,7 @@ Below is an example visualization from *Escherichia coli str. K-12* (BAKTA annot
 | --contig_num | Contig ID |
 | --length_per_line | Nucleotides per line |
 | --lines_per_page | Lines per page |
-
+| --output_name | pdf file name|
 ---
 
 ## 🎨 Feature Types Supported
